@@ -12,10 +12,9 @@ public class MainWebController {
         model.addAttribute("title", "Главная страница");
         return "home";
     }
-    @GetMapping("/cabinet")
-    public String cabinet(Model model) {
-        model.addAttribute("title", "Личный кабинет");
-        return "cabinet";
-        }
-
+    @GetMapping("/")
+    public String home1(Model model) {
+        model.addAttribute("title", "Главная страница");
+        return "home";
+    }
 }
