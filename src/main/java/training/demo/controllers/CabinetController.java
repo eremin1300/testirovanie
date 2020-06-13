@@ -18,5 +18,10 @@ public class CabinetController {
         model.addAttribute("posts", posts);
         return "cabinet";
     }
+    @GetMapping("/adminroom")
+    public String cabinet(Model model) {
+        model.addAttribute("title", "Главная страница");
+        return "adminRoom";
+    }
+
 }
-//asdasdasd

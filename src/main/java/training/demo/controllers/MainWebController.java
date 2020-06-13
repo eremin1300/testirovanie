@@ -17,4 +17,5 @@ public class MainWebController {
         model.addAttribute("title", "Главная страница");
         return "home";
     }
+
 }
