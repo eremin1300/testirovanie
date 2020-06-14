@@ -19,8 +19,8 @@ public class CabinetController {
         return "cabinet";
     }
     @GetMapping("/adminroom")
-    public String cabinet(Model model) {
-        model.addAttribute("title", "Главная страница");
+    public String adminroom(Model model) {
+        model.addAttribute("title", "Админка");
         return "adminRoom";
     }
 
