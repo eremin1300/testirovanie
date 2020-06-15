@@ -1,8 +1,9 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<header th:insert="blocks/header :: header"></header>
-
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<header th:insert="blocks/header :: header"></header>
+<body class="text-left">
 <div class="container mt-5 mb-5">
     <h1>Список тем</h1>
     <div th:each="el : ${posts}" class="alert alert-info mt-2">
