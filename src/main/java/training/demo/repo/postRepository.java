@@ -1,11 +1,9 @@
 package training.demo.repo;
 
 import org.springframework.data.repository.CrudRepository;
-import training.demo.models.posts;
+import training.demo.models.lesson;
+import training.demo.models.video;
+import training.demo.models.test;
 
-public interface postRepository extends CrudRepository <posts, Long> {
-}
-public interface videoRepository extends CrudRepository <video, Long> {
-}
-public interface testRepository extends CrudRepository <test, Long> {
+public interface postRepository extends CrudRepository <lesson, Long> {
 }

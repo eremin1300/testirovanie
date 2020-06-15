@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class video {
-    
+
         public Long getId() {
             return id;
         }
