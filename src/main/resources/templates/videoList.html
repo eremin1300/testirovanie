@@ -4,6 +4,10 @@
 
 <header th:insert="blocks/header :: header"></header>
 <body class="text-left">
+<div th:each="el : ${video}" class = "alert alert-info mt-2">
+    <h3 th:text="$el.title"></h3>
+    <a th:href ="'/videolist/' + ${el.id}">${el.name}</a>
+</div>
 
 </body>
 </html>
