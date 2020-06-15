@@ -18,4 +18,22 @@ public class adminController {
         return "adminRoom";
     }
 
+    @GetMapping("/addvideo")
+    public String addvideo(Model model) {
+        model.addAttribute("title", "Добавить Видео");
+        return "addvideo";
+    }
+
+    @GetMapping("/addtest")
+    public String addtest(Model model) {
+        model.addAttribute("title", "Добавить Тесты");
+        return "addtest";
+    }
+
+    @GetMapping("/addlesson")
+    public String addlesson(Model model) {
+        model.addAttribute("title", "Добавить Статьи");
+        return "addlesson";
+    }
+
 }

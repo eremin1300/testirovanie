@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>NolBol Training</title>
@@ -6,7 +6,7 @@
 </head>
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <body class="text-left">
-
+<header th:insert="blocks/header :: header"></header>
 
 <div th:each="el : ${posts}" class = "alert alert-info mt-2">
     <h3 th:text="$el.title"></h3>
@@ -15,5 +15,5 @@
 
 </form>
 </body>
-<footer>  <p class="mt-5 mb-3 text-muted">Система Тестирования</p> </footer>
+<footer><br> <p class="mt-5 mb-3 text-muted">Система Тестирования</p> </footer>
 </html>
