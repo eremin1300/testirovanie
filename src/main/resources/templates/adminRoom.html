@@ -3,19 +3,18 @@
 <head>
     <title>NolBol Training</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <div class="container mt-5 mb-5">
-        <p class="float left" align="left">
-            <a href="testlist">На страницу тестирования</a> <br>
-            <a href="videolist">На страницу просмотра видео</a><br>
-            <a href="lessonslist">На страницу просмотра статей</a><br>
-            <a href="#">На страницу добавления тестов</a> <br>
-            <a href="#">На страницу добавления видео</a><br>
-            <a href="#">На страницу добавления статей</a><br>
-        </p>
-    </div>
 </head>
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<body class="text-center">
+<body class="text-left">
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5 mb-5">
+    <p class="float left" align="left"> <br>
+        <a href="#">На страницу добавления и редактирования тестов</a><br>
+        <a href="#">На страницу добавления и редактирования видео</a><br>
+        <a href="#">На страницу добавления и редактирования статей</a><br>
+    </p>
+</div>
+
 <footer class = "test-muted">
 
 </footer>

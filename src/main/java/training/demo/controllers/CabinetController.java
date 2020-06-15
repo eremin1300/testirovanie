@@ -12,12 +12,7 @@ public class CabinetController {
     @Autowired
     private training.demo.repo.postRepository postRepository;
 
-    @GetMapping("/cabinet")
-    public String cabinet(Model model) {
-        Iterable<posts> posts = postRepository.findAll();
-        model.addAttribute("posts", posts);
-        return "cabinet";
-    }
+
     @GetMapping("/adminroom")
     public String adminroom(Model model) {
         model.addAttribute("title", "Админка");
