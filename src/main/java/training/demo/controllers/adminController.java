@@ -4,6 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import training.demo.models.video;
+import training.demo.repo.videoRepository;
 
 
 @Controller
@@ -36,4 +40,10 @@ public class adminController {
         return "addlesson";
     }
 
+    @PostMapping("/addvideo")
+    public String addVideoAdd(@RequestParam String name, @RequestParam String title,@RequestParam String URL , Model model){
+    video video = new video(name,title,URL);
+        videoRepository.save(video);
+            return "redirect:/videolist";
+    }
 }

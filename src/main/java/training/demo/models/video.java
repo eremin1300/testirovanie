@@ -39,7 +39,16 @@ public class video {
             this.title = title;
         }
 
-        private String title;
+    public video() {
+    }
+
+    public video(String name, String title, String URL) {
+        this.name = name;
+        this.title = title;
+        this.URL = URL;
+    }
+
+    private String title;
 
         public String getURL() {
             return URL;
