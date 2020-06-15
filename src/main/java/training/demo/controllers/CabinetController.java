@@ -16,8 +16,6 @@ public class CabinetController {
     @GetMapping("/cabinet")
     public String cabinet(Model model) {
         model.addAttribute("title", "Личный Кабинет");
-        Iterable<posts> posts = postRepository.findAll();
-        model.addAttribute("posts", posts);
         return "cabinet";
     }
 
