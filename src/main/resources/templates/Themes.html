@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:insert="blocks/header :: header"></header>
+
+<link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<div class="container mt-5 mb-5">
+    <h1>Список тем</h1>
+    <div th:each="el : ${posts}" class="alert alert-info mt-2">
+        <h3 th:text="${el.title}">
+            <p th:text="${el.anons}"/>
+            <a th:href="'/blog/' + ${el.id}">Детальнее</a>
+
+    </div>
+</div>
+
+
+
+</html>

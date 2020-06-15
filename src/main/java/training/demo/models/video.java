@@ -30,13 +30,6 @@ public class video {
 
         private String name;
 
-        public String getFullText() {
-            return fullText;
-        }
-
-        public void setFullText(String fullText) {
-            this.fullText = fullText;
-        }
 
         public String getTitle() {
             return title;
@@ -47,6 +40,14 @@ public class video {
         }
 
         private String title;
-        private String fullText;
-    }
-ntity
+
+        public String getURL() {
+            return URL;
+        }
+
+        public void setURL(String URL) {
+            this.URL = URL;
+        }
+
+        private String URL;
+        }

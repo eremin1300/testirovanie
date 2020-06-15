@@ -5,6 +5,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class users {
+
     public Long getId() {
         return id;
     }
@@ -28,5 +29,16 @@ public class users {
         this.password = password;
     }
     private String password;
+
+    public String getAccess() {
+        return access;
+    }
+
+    public void setAccess(String access) {
+        this.access = access;
+    }
+
+    private String access;
+
 
 }
