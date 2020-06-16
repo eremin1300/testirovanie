@@ -41,9 +41,9 @@ public class adminController {
     }
 
     @PostMapping("/addvideo")
-    public String addVideoAdd(@RequestParam String name, @RequestParam String title,@RequestParam String URL , Model model){
-    video vidos = new video(name, title, URL);
-     vidos = videoRepository.save(vidos);
-            return "redirect:/videolist";
+    public String addVideoAdd(@RequestParam String name, @RequestParam String title, @RequestParam String URL, Model model) {
+        video vidos = new video(name, title, URL);
+        vidos = videoRepository.save(vidos);
+        return "redirect:/videolist";
     }
 }
