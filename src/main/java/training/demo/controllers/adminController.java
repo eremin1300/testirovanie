@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import training.demo.models.video;
-import training.demo.repo.videoRepository;
+
 
 
 @Controller
 public class adminController {
 
     @Autowired
-    private training.demo.repo.postRepository postRepository;
+    private training.demo.repo.videoRepository videoRepository;
 
     @GetMapping("/adminroom")
     public String adminroom(Model model) {
@@ -42,8 +42,8 @@ public class adminController {
 
     @PostMapping("/addvideo")
     public String addVideoAdd(@RequestParam String name, @RequestParam String title,@RequestParam String URL , Model model){
-    video video = new video(name,title,URL);
-        videoRepository.save(video);
+    video vidos = new video(name, title, URL);
+     vidos = videoRepository.save(vidos);
             return "redirect:/videolist";
     }
 }

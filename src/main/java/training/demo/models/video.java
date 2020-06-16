@@ -20,6 +20,8 @@ public class video {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
 
+    private String name;
+
         public String getName() {
             return name;
         }
@@ -28,8 +30,7 @@ public class video {
             this.name = name;
         }
 
-        private String name;
-
+    private String title;
 
         public String getTitle() {
             return title;
@@ -42,21 +43,20 @@ public class video {
     public video() {
     }
 
+    private String URL;
+
+    public String getURL() {
+        return URL;
+    }
+
+    public void setURL(String URL) {
+        this.URL = URL;
+    }
+
     public video(String name, String title, String URL) {
         this.name = name;
         this.title = title;
         this.URL = URL;
     }
 
-    private String title;
-
-        public String getURL() {
-            return URL;
-        }
-
-        public void setURL(String URL) {
-            this.URL = URL;
-        }
-
-        private String URL;
         }
