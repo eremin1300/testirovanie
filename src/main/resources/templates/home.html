@@ -5,7 +5,7 @@
 <header th:insert="blocks/header :: header"></header>
 <body class="text-left">
 
-<div th:each="el : ${posts}" class = "alert alert-info mt-2">
+<div th:each="el : ${posts}" class = "alert alert-success mt-2">
     <h3 th:text="$el.title"></h3>
     <a th:href ="'/cabinet/' + ${el.id}">Детальнее</a>
 </div>
