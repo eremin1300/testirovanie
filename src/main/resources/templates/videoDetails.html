@@ -7,8 +7,13 @@
 <br>
 <br>
 <br>
-<div th:each="el : ${video}" class = "alert alert-success mt-1">
-    <a th:href ="'/videolist/' + ${el.id}"><h5 th:text="${el.name}"></h5></a>
+<div class="container mt-5">
+    <div th:each="el : ${vidos}" class="alert alert-success mt-1">
+        <h1 th:text="${el.name}"/>
+        <p th:text="${el.title}"/>
+        <p th:text="${el.url}"/>
+    </div>
 </div>
+
 </body>
 </html>
