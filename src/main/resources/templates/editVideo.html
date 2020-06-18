@@ -3,7 +3,12 @@
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
 <header th:insert="blocks/header :: header"></header>
-<body>
-
+<body class="text-left">
+<br>
+<br>
+<br>
+<div th:each="el : ${video}" class = "alert alert-success mt-1">
+    <a th:href ="'/editvideo/' + ${el.id}"><h5 th:text="${el.name}"></h5></a>
+</div>
 </body>
 </html>

@@ -4,14 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import training.demo.models.video;
-
-import java.util.ArrayList;
-import java.util.Optional;
-
 
 @Controller
 public class adminController {
@@ -31,10 +23,10 @@ public class adminController {
         return "addvideo";
     }
 
-    @GetMapping("/addtest")
-    public String addtest(Model model) {
-        model.addAttribute("title", "Добавить Тесты");
-        return "addtest";
+    @GetMapping("/editvideo")
+    public String editvideo(Model model) {
+        model.addAttribute("title", "Добавить Статьи");
+        return "editVideo";
     }
 
     @GetMapping("/addlesson")
@@ -43,16 +35,16 @@ public class adminController {
         return "addlesson";
     }
 
-    @PostMapping("/addvideo")
-    public String addVideoAdd(@RequestParam String name, @RequestParam String title, @RequestParam String URL, Model model) {
-        video vidos = new video(name, title, URL);
-        vidos = videoRepository.save(vidos);
-        return "redirect:/videolist";
-    }
-    @GetMapping("/editvideo")
-    public String editvideo(Model model) {
+    @GetMapping("/editlesson")
+    public String aeditlesson(Model model) {
         model.addAttribute("title", "Добавить Статьи");
-        return "editVideo";
+        return "editLesson";
+    }
+
+    @GetMapping("/addtest")
+    public String addtest(Model model) {
+        model.addAttribute("title", "Добавить Тесты");
+        return "addtest";
     }
 
     @GetMapping("/edittests")
@@ -61,10 +53,6 @@ public class adminController {
         return "editTests";
     }
 
-    @GetMapping("/editlesson")
-    public String aeditlesson(Model model) {
-        model.addAttribute("title", "Добавить Статьи");
-        return "editLesson";
-    }
+
 
 }
