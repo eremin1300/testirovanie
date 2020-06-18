@@ -10,13 +10,16 @@
     </p>
 </div>
 <div class="container mt-5 mb-5">
-    <p class="float left" align="left"> <br>
+    <h1>Редактирование атрибутов видео</h1>
+    <p align="center"> <br>
+    <div th:each="el : ${video}">
     <form method="post"> <br>
-        <input type="text" name="name" placeholder="Введите тему видео" class="form-control"><br>
-        <input type="text" name="title" placeholder="Введите название видео" class="form-control"><br>
-        <textarea type="text" name="URL" placeholder="Введите ссылку на видео (необюходимо скопировать с ютуба)" class="form-control"></textarea><br>
-        <button type="submit" class="btn btn-success">Добавить статью</button>
+        <input type="text" th:value="${el:name}" name="name" placeholder="Выберите тему видео" class="form-control"><br>
+        <input type="text" th:value="${el:title}" name="title" placeholder="Введите название видео" class="form-control"><br>
+        <textarea type="text" name="URL" placeholder="Введите ссылку на видео (необюходимо скопировать с ютуба)" class="form-control" th:text="${el:URL}"/><br>
+        <button type="submit" class="btn btn-success">Сохранить изменения</button>
     </form>
+</div>
     </p>
 
 </div>
