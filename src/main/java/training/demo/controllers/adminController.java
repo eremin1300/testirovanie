@@ -49,12 +49,5 @@ public class adminController {
         vidos = videoRepository.save(vidos);
         return "redirect:/videolist";
     }
-    @GetMapping("/videolist/{id}")
-    public String videowatch(@PathVariable(value = "id") long videoid, Model model) {
-     Optional<video> video = videoRepository.findById(videoid);
-        ArrayList<video> vidos = new ArrayList<>();
-        video.ifPresent(vidos::add);
-        model.addAttribute("vidos", vidos);
-        return "videoDetails";
-    }
+
 }

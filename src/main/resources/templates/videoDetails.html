@@ -3,15 +3,16 @@
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
 <header th:insert="blocks/header :: header"></header>
-<body class="text-left">
+
 <br>
 <br>
 <br>
-<div class="container mt-5">
-    <div th:each="el : ${vidos}" class="alert alert-success mt-1">
-        <h1 th:text="${el.name}"/>
-        <p th:text="${el.title}"/>
-        <p th:text="${el.url}"/>
+<div class="video-container mt-5" align="center" >
+    <div class="video-item" th:each="el : ${video}">
+        <iframe width="800" height="600" th:src="${'https://www.youtube.com/embed/' + el.URL}"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        <h3 th:text="${el.title}"></h3>
     </div>
 </div>
 
