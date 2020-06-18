@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<header th:insert="blocks/header :: header"></header>
+<body class="text-left">
+<div class="container mt-5 mb-5">
+    <p class="float left" align="left"> <br>
+        <a href="adminroom">Назад</a><br>
+    </p>
+</div>
+<div class="container mt-5 mb-5">
+    <p class="float left" align="left"> <br>
+    <form action="/addlesson" method="post"> </form><br>
+    <input type="text" name="name" placeholder="Введите название новой темы" class="form-control"><br>
+    <button type="submit" class="btn btn-success">Добавить статью</button>
+
+    </p>
+
+</div>
+</body>
+</html>

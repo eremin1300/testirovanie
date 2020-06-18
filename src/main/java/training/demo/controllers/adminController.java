@@ -49,5 +49,22 @@ public class adminController {
         vidos = videoRepository.save(vidos);
         return "redirect:/videolist";
     }
+    @GetMapping("/editvideo")
+    public String editvideo(Model model) {
+        model.addAttribute("title", "Добавить Статьи");
+        return "editVideo";
+    }
+
+    @GetMapping("/edittests")
+    public String edittests(Model model) {
+        model.addAttribute("title", "Добавить Статьи");
+        return "editTests";
+    }
+
+    @GetMapping("/editlesson")
+    public String aeditlesson(Model model) {
+        model.addAttribute("title", "Добавить Статьи");
+        return "editLesson";
+    }
 
 }
