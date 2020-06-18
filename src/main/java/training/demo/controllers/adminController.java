@@ -36,7 +36,7 @@ public class adminController {
         model.addAttribute("video", video);
         return "editVideo";
     }
-    
+
     @GetMapping("/editvideoform/{id}")
     public String videoedit(@PathVariable(value = "id") long videoid, Model model) {
         Optional<video> video = videoRepository.findById(videoid);
