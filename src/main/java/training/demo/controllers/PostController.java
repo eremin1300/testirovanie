@@ -15,30 +15,29 @@ public class PostController {
     @Autowired
     private training.demo.repo.videoRepository videoRepository;
     @Autowired
-    private training.demo.repo.ThemesRepo ThemesRepo;
+    private training.demo.repo.videoRepository ThemesRepo;
 
 
     @PostMapping("/addvideo")
     public String addVideoAdd(@RequestParam String name, @RequestParam String title, @RequestParam String URL, Model model) {
         video vidos = new video(name, title, URL);
-        videoRepository.save(vidos);
+        vidos = videoRepository.save(vidos);
         return "redirect:/videolist";
     }
-
     @PostMapping("/editvideoform/{id}")
-    public String editvideo(@PathVariable(value = "id") long id, @RequestParam String theme, @RequestParam String title, @RequestParam String URL, Model model) {
+    public String editvideo(@PathVariable(value = "id") long id, @RequestParam String name, @RequestParam String title, @RequestParam String URL, Model model) {
         video vidos = videoRepository.findById(id).orElseThrow();
-        vidos.setTheme(theme);
+        vidos.setName(name);
         vidos.setTitle(title);
         vidos.setURL(URL);
         videoRepository.save(vidos);
         return "redirect:/editvideo";
     }
 
-    @PostMapping("/addThemes")
+    @PostMapping("/thadd")
     public String addTHadd(@RequestParam String name, Model model) {
-    themes th=new themes(name);
-       ThemesRepo.save(th);
-        return "redirect:/th";
+        themes newTheme = new themes(name);
+        newTheme = ThemesRepo.save(newTheme);
+        return "redirect:/Themes";
     }
 }

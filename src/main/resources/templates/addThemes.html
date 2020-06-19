@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
+<header th:insert="blocks/header :: header"></header>
 <body class="text-left">
 <div class="container mt-5 mb-5">
     <p class="float left" align="left"> <br>
@@ -10,11 +11,11 @@
 </div>
 <div class="container mt-5 mb-5">
     <p align="center"> <br>
-    <form action="/addThemes" method="post"> <br>
+    <form action="/addthemes" method="post"> </form><br>
     <input type="text" name="name" placeholder="Введите название новой темы" class="form-control"><br>
     <button type="submit" class="btn btn-success">Добавить тему</button>
-    </form>
     </p>
+
 </div>
 </body>
 </html>

@@ -4,8 +4,6 @@
 
 <header th:insert="blocks/header :: header"></header>
 <body class="text-left">
-<div th:each="el : ${tests}" class = "alert alert-success mt-1">
-    <a th:href ="'/testlist/' + ${el.id}"><h5 th:text="${el.themes}"></h5></a>
-</div>
+
 </body>
 </html>
