@@ -11,13 +11,12 @@
 </div>
 <div class="container mt-5 mb-5">
     <p class="float left" align="left"> <br>
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Выберите тему
-        </button>
-
     <form action="/addvideo" method="post"> <br>
-
-    <input type="text" th:each="dropDownItem : ${themes}" th:value="${dropDownItem.name}" th:text="${dropDownItem.name}"  name="name" placeholder="Выберите тему видео" class="form-control"><br>
+    <select>
+        <option th:each="dropDownItem : ${themes}"
+                th:value="${dropDownItem.name}"
+                th:text="${dropDownItem.name}" />
+    </select>
     <input type="text" name="title" placeholder="Введите название видео" class="form-control"><br>
     <textarea type="text" name="URL" placeholder="Введите ссылку на видео (необюходимо скопировать с ютуба)" class="form-control"></textarea><br>
     <button type="submit" class="btn btn-success">Добавить видео</button>
@@ -27,3 +26,9 @@
 </div>
 </body>
 </html>
+<!--
+<form:select path="${city}" name="city" cssClass="form-control">
+								<form:option value="NONE" label="--- Select ---" />
+								<form:options items="${cityList}" />
+							</form:select>
+							!>

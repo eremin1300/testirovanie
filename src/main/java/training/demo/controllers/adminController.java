@@ -31,6 +31,8 @@ public class adminController {
     @GetMapping("/addvideo")
     public String addvideo(Model model) {
         model.addAttribute("title", "Добавить Видео");
+        List<themes> th = (List<themes>) ThemesRepo.findAll();
+        model.addAttribute("themes", th);
         return "addvideo";
     }
 
@@ -82,13 +84,4 @@ public class adminController {
         return "addThemes";
     }
 
-
-/*
-    @GetMapping("/addThemes")
-    public String addth(Model model) {
-        Iterable<themes> th = ThemesRepo.findAll();
-        model.addAttribute("th", th);
-        return "addThemes";
-    }
-*/
 }

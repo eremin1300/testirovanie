@@ -24,6 +24,7 @@ public class PostController {
         vidos = videoRepository.save(vidos);
         return "redirect:/videolist";
     }
+
     @PostMapping("/editvideoform/{id}")
     public String editvideo(@PathVariable(value = "id") long id, @RequestParam String theme, @RequestParam String title, @RequestParam String URL, Model model) {
         video vidos = videoRepository.findById(id).orElseThrow();
