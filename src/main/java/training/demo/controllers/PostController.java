@@ -15,7 +15,7 @@ public class PostController {
     @Autowired
     private training.demo.repo.videoRepository videoRepository;
     @Autowired
-    private training.demo.repo.videoRepository ThemesRepo;
+    private training.demo.repo.ThemesRepo ThemesRepo;
 
 
     @PostMapping("/addvideo")
@@ -34,7 +34,7 @@ public class PostController {
         return "redirect:/editvideo";
     }
 
-    @PostMapping("/thadd")
+    @PostMapping("/addthemes")
     public String addTHadd(@RequestParam String name, Model model) {
         themes newTheme = new themes(name);
         newTheme = ThemesRepo.save(newTheme);
