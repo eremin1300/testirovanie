@@ -70,6 +70,10 @@ public class adminController {
         return "editTests";
     }
 
-
+    @GetMapping("/thadd")
+    public String addth(Model model) {
+        model.addAttribute("title", "Список Тем");
+        return "addThemes";
+    }
 
 }

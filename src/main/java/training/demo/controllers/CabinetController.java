@@ -27,6 +27,7 @@ public class CabinetController {
         model.addAttribute("title", "Список Тем");
         return "Themes";
     }
+
 }
 /*
 @Controller

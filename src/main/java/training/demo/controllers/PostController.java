@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import training.demo.models.video;
+import training.demo.models.themes;
 
 @Controller
 public class PostController {
     @Autowired
     private training.demo.repo.videoRepository videoRepository;
+    @Autowired
+    private training.demo.repo.videoRepository ThemesRepo;
+
 
     @PostMapping("/addvideo")
     public String addVideoAdd(@RequestParam String name, @RequestParam String title, @RequestParam String URL, Model model) {
@@ -28,5 +32,12 @@ public class PostController {
         vidos.setURL(URL);
         videoRepository.save(vidos);
         return "redirect:/editvideo";
+    }
+
+    @PostMapping("/thadd")
+    public String addTHadd(@RequestParam String name, Model model) {
+        themes newTheme = new themes(name);
+        newTheme = ThemesRepo.save(newTheme);
+        return "redirect:/Themes";
     }
 }

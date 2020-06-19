@@ -21,8 +21,15 @@ public class themes {
 
     private Long id;
 
+    public themes() {
+    }
+
     public String getName() {
         return name;
+    }
+
+    public themes(String name) {
+        this.name = name;
     }
 
     public void setName(String name) {

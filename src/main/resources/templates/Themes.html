@@ -6,10 +6,14 @@
 <body class="text-left">
 <div class="container mt-5 mb-5">
     <h1>Список тем</h1>
-    <div th:each="el : ${themes}" class="alert alert-info mt-2">
-        <a th:href ="'/themes/' + ${el.id}"><h5 th:text="${el.name}"></h5></a>
+         <div th:if="${themes != null and not #lists.isEmpty(themes)}">
+             <select>
+                 <option th:each="dropDownItem : ${themes}"
+                         th:value="${dropDownItem.name}"
+                         th:text="${dropDownItem.name}" />
+             </select>
 
-    </div>
+        </div>
 </div>
 <!--
  <div class="form-group">
@@ -26,6 +30,10 @@
                <div>"No Institutions were found, please create some first"</div>
            </div>
        </div>
-    </div> --!>
+    </div>
+                 <div th:each="el : ${themes}" class="alert alert-info mt-2">
+                <a th:href ="'/themes/' + ${el.id}"><h5 th:text="${el.name}"></h5></a>
+
+              </div>--!>
 </body>
 </html>
