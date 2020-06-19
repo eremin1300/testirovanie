@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<header th:insert="blocks/header :: header"></header>
+
+<br>
+<br>
+<br>
+<div class="video-container mt-5" align="center" >
+    <div class="video-item" th:each="el : ${themes}">
+        <iframe width="800" height="600" th:src="${'https://www.youtube.com/embed/' + el.URL}"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe><br>
+        <h3 th:text="${el.name}"></h3>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,39 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-<header th:insert="blocks/header :: header"></header>
 <body class="text-left">
 <div class="container mt-5 mb-5">
     <h1>Список тем</h1>
-         <div th:if="${themes != null and not #lists.isEmpty(themes)}">
-             <select>
-                 <option th:each="dropDownItem : ${themes}"
-                         th:value="${dropDownItem.name}"
-                         th:text="${dropDownItem.name}" />
-             </select>
-
-        </div>
-</div>
-<!--
- <div class="form-group">
-        <label class="col-md-3 control-label">Institution</label>
-            <div class="col-md-5">
-            <div th:if="${institutionList != null and not #lists.isEmpty(institutionList)}">
-                <select>
-                    <option th:each="dropDownItem : ${institutionList}"
-                                    th:value="${dropDownItem.name}"
-                                    th:text="${dropDownItem.name}" />
-                </select>
-           </div>
-           <div th:if="${institutionList == null or lists.isEmpty(institutionList)}">
-               <div>"No Institutions were found, please create some first"</div>
-           </div>
-       </div>
+    <div th:each="el : ${themes}" class = "alert alert-success mt-1">
+        <a th:href ="'/th/' + ${el.id}"><h5 th:text="${el.name}"></h5></a>
     </div>
-                 <div th:each="el : ${themes}" class="alert alert-info mt-2">
-                <a th:href ="'/themes/' + ${el.id}"><h5 th:text="${el.name}"></h5></a>
-
-              </div>--!>
+</div>
 </body>
 </html>

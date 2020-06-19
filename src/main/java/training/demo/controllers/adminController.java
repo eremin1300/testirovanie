@@ -70,7 +70,7 @@ public class adminController {
         return "editTests";
     }
 
-    @GetMapping("/thadd")
+    @GetMapping("/addThemes")
     public String addth(Model model) {
         model.addAttribute("title", "Список Тем");
         return "addThemes";
