@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import training.demo.models.lesson;
+import training.demo.models.themes;
 import training.demo.models.video;
 import training.demo.models.test;
+import training.demo.repo.ThemesRepo;
 import training.demo.repo.lessonRepository;
 import training.demo.repo.videoRepository;
 import training.demo.repo.testRepository;
@@ -26,6 +28,9 @@ public class LessonsController {
     private training.demo.repo.videoRepository videoRepository;
     @Autowired
     private training.demo.repo.testRepository testRepository;
+    @Autowired
+    private training.demo.repo.ThemesRepo ThemesRepo;
+
 
     @GetMapping("/videolist")
     public String video(Model model) {
@@ -55,5 +60,13 @@ public class LessonsController {
         video.ifPresent(vidos::add);
         model.addAttribute("video", vidos);
         return "videoDetails";
+    }
+    @GetMapping("/th/{id}")
+    public String thID (@PathVariable(value = "id") long themeid, Model model) {
+        Optional<themes> themes = ThemesRepo.findById(themeid);
+        ArrayList<themes> th = new ArrayList<>();
+        themes.ifPresent(th::add);
+        model.addAttribute("video", th);
+        return "ThemesDetails";
     }
 }

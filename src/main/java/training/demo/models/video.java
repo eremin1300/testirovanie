@@ -20,14 +20,14 @@ public class video {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
 
-    private String name;
+    private String theme;
 
-        public String getName() {
-            return name;
+        public String getTheme() {
+            return theme;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setTheme(String name) {
+            this.theme = name;
         }
 
     private String title;
@@ -54,7 +54,7 @@ public class video {
     }
 
     public video(String name, String title, String URL) {
-        this.name = name;
+        this.theme = theme;
         this.title = title;
         this.URL = URL;
     }
