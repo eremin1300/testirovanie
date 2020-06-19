@@ -21,7 +21,7 @@ public class PostController {
     @PostMapping("/addvideo")
     public String addVideoAdd(@RequestParam String name, @RequestParam String title, @RequestParam String URL, Model model) {
         video vidos = new video(name, title, URL);
-        vidos = videoRepository.save(vidos);
+        videoRepository.save(vidos);
         return "redirect:/videolist";
     }
 
@@ -38,7 +38,7 @@ public class PostController {
     @PostMapping("/addThemes")
     public String addTHadd(@RequestParam String name, Model model) {
     themes th=new themes(name);
-       th = ThemesRepo.save(th);
+       ThemesRepo.save(th);
         return "redirect:/th";
     }
 }

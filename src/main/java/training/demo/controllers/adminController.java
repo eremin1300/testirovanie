@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.thymeleaf.spring5.expression.Themes;
 import training.demo.models.test;
@@ -31,8 +32,6 @@ public class adminController {
     @GetMapping("/addvideo")
     public String addvideo(Model model) {
         model.addAttribute("title", "Добавить Видео");
-        List<themes> th = (List<themes>) ThemesRepo.findAll();
-        model.addAttribute("themes", th);
         return "addvideo";
     }
 
@@ -78,7 +77,7 @@ public class adminController {
         model.addAttribute("title", "Добавить Статьи");
         return "editTests";
     }
-    @GetMapping("/addTheme")
+    @GetMapping("/addThemes")
     public String addth (Model model) {
         model.addAttribute("title", "Добавить тему");
         return "addThemes";

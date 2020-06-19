@@ -4,10 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import training.demo.models.themes;
+
+import java.util.List;
 
 @Controller
 public class CabinetController {
 
+    @Autowired
+    private training.demo.repo.videoRepository videoRepository;
+    private training.demo.repo.ThemesRepo ThemesRepo;
 
     @GetMapping("/cabinet")
     public String cabinet(Model model) {
@@ -23,11 +29,12 @@ public class CabinetController {
     }
 
     @GetMapping("/th")
-    public String th(Model model) {
+    public String themes (Model model) {
         model.addAttribute("title", "Список Тем");
+        Iterable <themes> themes = ThemesRepo.findAll();
+        model.addAttribute("themes", themes);
         return "Themes";
     }
-
 }
 /*
 @Controller

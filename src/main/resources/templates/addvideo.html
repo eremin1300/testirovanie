@@ -12,23 +12,21 @@
 <div class="container mt-5 mb-5">
     <p class="float left" align="left"> <br>
     <form action="/addvideo" method="post"> <br>
-    <select>
-        <option th:each="dropDownItem : ${themes}"
-                th:value="${dropDownItem.name}"
-                th:text="${dropDownItem.name}" />
-    </select>
+    <div class="controls">
+        <select class="form-control" name="example" id="example">
+            <option value="0">NONE</option>
+            <option th:each="el : ${themes}"
+                    th:value="${el.name}}"
+                    th:text="${user.name}">
+            </option>
+        </select>
     <input type="text" name="title" placeholder="Введите название видео" class="form-control"><br>
     <textarea type="text" name="URL" placeholder="Введите ссылку на видео (необюходимо скопировать с ютуба)" class="form-control"></textarea><br>
     <button type="submit" class="btn btn-success">Добавить видео</button>
-        </form>
+    </div>
+    </form>
     </p>
 
 </div>
 </body>
 </html>
-<!--
-<form:select path="${city}" name="city" cssClass="form-control">
-								<form:option value="NONE" label="--- Select ---" />
-								<form:options items="${cityList}" />
-							</form:select>
-							!>
