@@ -72,7 +72,7 @@ public class adminController {
 
     @GetMapping("/addthemes")
     public String addth(Model model) {
-        model.addAttribute("title", "Список Тем");
+        model.addAttribute("title", "Добавить тему");
         return "addThemes";
     }
 

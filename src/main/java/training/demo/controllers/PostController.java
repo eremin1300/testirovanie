@@ -37,7 +37,7 @@ public class PostController {
     @PostMapping("/addthemes")
     public String addTHadd(@RequestParam String name, Model model) {
         themes newTheme = new themes(name);
-        newTheme = ThemesRepo.save(newTheme);
-        return "redirect:/Themes";
+        ThemesRepo.save(newTheme);
+        return "redirect:/th";
     }
 }

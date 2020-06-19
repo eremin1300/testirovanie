@@ -4,9 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import training.demo.models.themes;
 
+import training.demo.models.video;
 import training.demo.repo.ThemesRepo;
+
+import java.util.ArrayList;
+import java.util.Optional;
 
 @Controller
 public class CabinetController {
@@ -33,6 +38,14 @@ public class CabinetController {
         Iterable<themes> themes = ThemesRepo.findAll();
         model.addAttribute("themes", themes);
         return "Themes";
+    }
+    @GetMapping("/th/{id}")
+    public String videowatch(@PathVariable(value = "id") long videoid, Model model) {
+        Optional<themes> themes = ThemesRepo.findById(videoid);
+        ArrayList<themes> themes2 = new ArrayList<>();
+        themes.ifPresent(themes2::add);
+        model.addAttribute("themes", themes2);
+        return "videoDetails";
     }
 }
 /*
