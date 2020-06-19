@@ -5,10 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.thymeleaf.spring5.expression.Themes;
 import training.demo.models.test;
+import training.demo.models.themes;
 import training.demo.models.video;
+import training.demo.repo.ThemesRepo;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -16,6 +20,7 @@ public class adminController {
 
     @Autowired
     private training.demo.repo.videoRepository videoRepository;
+    private training.demo.repo.ThemesRepo ThemesRepo;
 
     @GetMapping("/adminroom")
     public String adminroom(Model model) {
@@ -33,6 +38,8 @@ public class adminController {
     public String editvideo(Model model) {
         model.addAttribute("title", "Редактировать видео");
         Iterable<video> video = videoRepository.findAll();
+        Iterable<themes> th = ThemesRepo.findAll();
+        model.addAttribute("th", th);
         model.addAttribute("video", video);
         return "editVideo";
     }
@@ -69,11 +76,19 @@ public class adminController {
         model.addAttribute("title", "Добавить Статьи");
         return "editTests";
     }
-
-    @GetMapping("/addThemes")
-    public String addth(Model model) {
-        model.addAttribute("title", "Список Тем");
+    @GetMapping("/addTheme")
+    public String addth (Model model) {
+        model.addAttribute("title", "Добавить тему");
         return "addThemes";
     }
 
+
+/*
+    @GetMapping("/addThemes")
+    public String addth(Model model) {
+        Iterable<themes> th = ThemesRepo.findAll();
+        model.addAttribute("th", th);
+        return "addThemes";
+    }
+*/
 }

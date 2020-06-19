@@ -66,7 +66,7 @@ public class LessonsController {
         Optional<themes> themes = ThemesRepo.findById(themeid);
         ArrayList<themes> th = new ArrayList<>();
         themes.ifPresent(th::add);
-        model.addAttribute("video", th);
+        model.addAttribute("th", th);
         return "ThemesDetails";
     }
 }
