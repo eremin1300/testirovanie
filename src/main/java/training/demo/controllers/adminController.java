@@ -20,13 +20,13 @@ public class adminController {
     @GetMapping("/adminroom")
     public String adminroom(Model model) {
         model.addAttribute("title", "Админка");
-        return "adminRoom";
+        return "/adminRoom";
     }
 
     @GetMapping("/addvideo")
     public String addvideo(Model model) {
         model.addAttribute("title", "Добавить Видео");
-        return "addvideo";
+        return "/addvideo";
     }
 
     @GetMapping("/editvideo")
@@ -34,7 +34,7 @@ public class adminController {
         model.addAttribute("title", "Редактировать видео");
         Iterable<video> video = videoRepository.findAll();
         model.addAttribute("video", video);
-        return "editVideo";
+        return "/editVideo";
     }
 
     @GetMapping("/editvideoform/{id}")
@@ -49,31 +49,31 @@ public class adminController {
     @GetMapping("/addlesson")
     public String addlesson(Model model) {
         model.addAttribute("title", "Добавить Статьи");
-        return "addlesson";
+        return "/lessonslist";
     }
 
     @GetMapping("/editlesson")
     public String aeditlesson(Model model) {
         model.addAttribute("title", "Добавить Статьи");
-        return "editLesson";
+        return "/lessonslist";
     }
 
     @GetMapping("/addtest")
     public String addtest(Model model) {
         model.addAttribute("title", "Добавить Тесты");
-        return "addtest";
+        return "/testlist";
     }
 
     @GetMapping("/edittests")
     public String edittests(Model model) {
         model.addAttribute("title", "Добавить Статьи");
-        return "editTests";
+        return "/testlist";
     }
 
     @GetMapping("/addthemes")
     public String addth(Model model) {
         model.addAttribute("title", "Добавить тему");
-        return "addThemes";
+        return "/addThemes";
     }
 
 }

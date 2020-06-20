@@ -20,15 +20,24 @@ public class test {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public String getName() {
-        return name;
+    public String getTheme() {
+        return theme;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public test() {
     }
 
-    private String name;
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
+    public test(String theme, String title, String fullText) {
+        this.theme = theme;
+        this.title = title;
+        this.fullText = fullText;
+    }
+
+    private String theme;
 
     public String getFullText() {
         return fullText;
