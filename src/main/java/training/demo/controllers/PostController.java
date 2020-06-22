@@ -40,8 +40,8 @@ public class PostController {
     }
 
     @PostMapping("/addtest")
-    public String addtestAdd(@RequestParam String theme, @RequestParam String title, @RequestParam String fulltext, Model model) {
-        test test = new test(theme, title, fulltext);
+    public String addtestAdd(@RequestParam String theme, @RequestParam String title, @RequestParam String num,@RequestParam String fulltext, Model model) {
+        test test = new test(theme, title, num, fulltext);
         testRepository.save(test);
         return "redirect:/addtest";
     }

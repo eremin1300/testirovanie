@@ -36,8 +36,23 @@ public class test {
         this.title = title;
         this.fullText = fullText;
     }
-
+    private String num;
     private String theme;
+
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
+
+    public test(String theme, String title, String num, String fullText) {
+        this.num = num;
+        this.theme = theme;
+        this.title = title;
+        this.fullText = fullText;
+    }
 
     public String getFullText() {
         return fullText;
