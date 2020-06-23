@@ -31,11 +31,6 @@ public class test {
         this.theme = theme;
     }
 
-    public test(String theme, String title, String fullText) {
-        this.theme = theme;
-        this.title = title;
-        this.fullText = fullText;
-    }
     private String num;
     private String theme;
 
