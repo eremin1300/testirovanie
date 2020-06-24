@@ -6,10 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import training.demo.models.themes;
-
-import training.demo.models.video;
-import training.demo.repo.ThemesRepo;
-
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -49,11 +45,6 @@ public class CabinetController {
         return "videoDetails";
     }
 
- /*   @GetMapping("/login")
-    public String login(Model model) {
-        model.addAttribute("title", "Релактировать темы");
-        return "Login";
-    }*/
 }
 
 /*

@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import training.demo.models.lesson;
 import training.demo.models.video;
 import training.demo.models.test;
-import training.demo.repo.lessonRepository;
-import training.demo.repo.videoRepository;
-import training.demo.repo.testRepository;
-
 import java.util.ArrayList;
 import java.util.Optional;
 

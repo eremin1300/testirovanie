@@ -4,20 +4,16 @@
 <body class="text-center">
 <br><br>
 
-<div th:if="${param.error}">
-    Неверные логин или пароль!
-</div>
-<div th:if="${param.logout}">
-    Удачного дня!!
+<div th:if="${message}">
+    Такой пользователь уже существует!
 </div>
 <div>
-<form th:action="@{/login}" method="post">
+<form th:action="@{/registration}" method="post">
     <br><br>
-    <h1 class="h3 mb-3 font-weight-normal">Пожалуйста войдите или зарегистрируйтесь</h1><br>
-    <input type="text" name="username" class="form-control" placeholder="Электронная почта" required="" autofocus="" size="40"><br>
+    <h1 class="h3 mb-3 font-weight-normal">Введите данные для регистрации</h1><br>
+    <input type="text" name="username" class="form-control" placeholder="Логин" required="" autofocus="" size="40"><br>
     <input type="password" name="password" class="form-control" placeholder="Пароль" required="" size="40"><br>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" >Войти</button><br>
-    <a class="nav-link" href="/registration">или Зарегистрируйтесь</a>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" >Зарегистрироваться</button><br>
 </form>
 </div>
 </body>
