@@ -13,7 +13,9 @@
     <p align="center"> <br>
     <form action="/addthemes" method="post"> <br>
     <input type="text" name="name" placeholder="Введите название новой темы" class="form-control"><br>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     <button type="submit" class="btn btn-success">Добавить тему</button>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     </form>
     </p>
 

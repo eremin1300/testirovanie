@@ -44,6 +44,11 @@ public class CabinetController {
         model.addAttribute("themes", themes2);
         return "videoDetails";
     }
+    @GetMapping("/results")
+    public String results(Model model) {
+        model.addAttribute("title", "результаты");
+        return "/results";
+    }
 
 }
 
