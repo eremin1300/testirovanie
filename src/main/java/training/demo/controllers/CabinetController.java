@@ -39,6 +39,7 @@ public class CabinetController {
         model.addAttribute("themes", themes);
         return "Themes";
     }
+
     @GetMapping("/th/{id}")
     public String videowatch(@PathVariable(value = "id") long videoid, Model model) {
         Optional<themes> themes = ThemesRepo.findById(videoid);
@@ -47,7 +48,14 @@ public class CabinetController {
         model.addAttribute("themes", themes2);
         return "videoDetails";
     }
+
+ /*   @GetMapping("/login")
+    public String login(Model model) {
+        model.addAttribute("title", "Релактировать темы");
+        return "Login";
+    }*/
 }
+
 /*
 @Controller
 @PreAuthorize("hasRole('Admin')")

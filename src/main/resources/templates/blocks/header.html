@@ -5,18 +5,23 @@
     <title>NolBol Training</title>
     <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <ul class="nav justify-content-center">
+    <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-            <a class="nav-link" href="/testlist">Тестирование</a>
+            <a class="nav-link active" href="/testlist">Тестирование</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/videolist">Обучающие видео</a>
+            <a class="nav-link active" href="/videolist">Обучающие видео</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/lessonslist">Обучающие статьи</a>
+            <a class="nav-link active" href="/lessonslist">Обучающие статьи</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/th">Темы</a>
+            <a class="nav-link active" href="/th">Темы</a>
+        </li>
+        <li class="nav-item">
+        <form th:action="@{/logout}" method="post">
+            <button type="button" class="btn btn-success">Выход</button>
+        </form>
         </li>
             </ul>
 </head>

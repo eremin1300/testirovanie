@@ -78,6 +78,6 @@ public class Institution {
 
        @OneToMany(mappedBy = "institution", fetch = FetchType.EAGER)
        @Fetch(value = FetchMode.SUBSELECT)
-       List<User> users = new ArrayList<User>();
+       List<User> allUsers = new ArrayList<User>();
        ... getters & setters
 }*/
