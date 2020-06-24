@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<header th:insert="blocks/HeaderCabinet :: headercabinet"></header>
 <body class="text-left">
+<br><br><br>
 <div class = "alert alert-primary mt-1">
-    <h2 th:inline="text" align="center">Добро пожаловать, [[${#httpServletRequest.remoteUser}]]!</h2>
+    <h2 th:inline="text" align="center">Добро пожаловать в систему тестирования, [[${#httpServletRequest.remoteUser}]]!</h2>
 </div>
 </body>
 </html>
