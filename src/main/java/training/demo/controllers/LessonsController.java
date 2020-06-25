@@ -45,10 +45,16 @@ public class LessonsController {
     }
     @GetMapping("/videolist/{name}")
     public String videowatch(@PathVariable(value = "name") String videoname, Model model) {
+        if(!videoRepository.findByName(videoname)){
         Iterable<video> video = videoRepository.findByName(videoname);
         ArrayList<video> vidos = new ArrayList<>();
-        video.forEach(vidos::add);
-        model.addAttribute("video", vidos);
+
+                         video.forEach(vidos::add);
+                         model.addAttribute("video", vidos);
+                         }
+        else {
+                model.addAttribute("message", "message");
+             }
         return "videolist";
     }
     @GetMapping("/videolist/{name}/{id}")
