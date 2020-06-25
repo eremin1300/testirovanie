@@ -9,7 +9,6 @@ import training.demo.models.lesson;
 import training.demo.models.video;
 import training.demo.models.test;
 import java.util.ArrayList;
-import java.util.Optional;
 
 @Controller
 public class LessonsController {
@@ -44,6 +43,23 @@ public class LessonsController {
         model.addAttribute("test", test);
         return "TestList";
     }
+    @GetMapping("/videolist/{name}")
+    public String videowatch(@PathVariable(value = "name") String videoname, Model model) {
+        Iterable<video> video = videoRepository.findByName(videoname);
+        ArrayList<video> vidos = new ArrayList<>();
+        video.forEach(vidos::add);
+        model.addAttribute("video", vidos);
+        return "videolist";
+    }
+    @GetMapping("/videolist/{name}/{id}")
+    public String videowatchbyid(@PathVariable(value = "name") String  name, @PathVariable(value = "id") long videoid, String videoname, Model model) {
+        Iterable<video> video = videoRepository.findByNameAndId(name ,videoid);
+        ArrayList<video> vidos = new ArrayList<>();
+        video.forEach(vidos::add);
+        model.addAttribute("video", vidos);
+        return "videoDetails";
+    }
+
    /* @GetMapping("/videolist/{id}")
     public String videowatch(@PathVariable(value = "id") long videoid, Model model) {
         Optional<video> video = videoRepository.findById(videoid);
