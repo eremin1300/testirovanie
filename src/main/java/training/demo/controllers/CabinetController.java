@@ -6,7 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import training.demo.models.themes;
+import training.demo.models.video;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -14,6 +17,8 @@ public class CabinetController {
 
     @Autowired
     private training.demo.repo.ThemesRepo ThemesRepo;
+    @Autowired
+    private training.demo.repo.videoRepository videoRepository;
 
     @GetMapping("/cabinet")
     public String cabinet(Model model) {
@@ -37,7 +42,7 @@ public class CabinetController {
     }
 
     @GetMapping("/th/{id}")
-    public String videowatch(@PathVariable(value = "id") long videoid, Model model) {
+    public String videowatchthemes(@PathVariable(value = "id") long videoid, Model model) {
         Optional<themes> themes = ThemesRepo.findById(videoid);
         ArrayList<themes> themes2 = new ArrayList<>();
         themes.ifPresent(themes2::add);
@@ -48,6 +53,37 @@ public class CabinetController {
     public String results(Model model) {
         model.addAttribute("title", "результаты");
         return "/results";
+    }
+    @GetMapping("/thv/{id}")
+    public String themesVideoDetails(@PathVariable(value = "id") long videoid, Model model) {
+        Optional<themes> themes = ThemesRepo.findById(videoid);
+        ArrayList<themes> themes2 = new ArrayList<>();
+        themes.ifPresent(themes2::add);
+        model.addAttribute("themes", themes2);
+        return "videolist";
+    }
+    @GetMapping("/thv")
+    public String themesVideo(Model model) {
+        model.addAttribute("title", "Видео");
+        Iterable<themes> themes = ThemesRepo.findAll();
+        model.addAttribute("themes", themes);
+        return "ThemesVideo";
+    }
+    @GetMapping("/videolist/{name}")
+    public String videowatch(@PathVariable(value = "name") String videoname, Model model) {
+        Iterable<video> video = videoRepository.findByName(videoname);
+        ArrayList<video> vidos = new ArrayList<>();
+        video.forEach(vidos::add);
+        model.addAttribute("video", vidos);
+        return "videolist";
+    }
+    @GetMapping("/videolist/{name}/{id}")
+    public String videowatchbyid(@PathVariable(value = "id") String  name, @PathVariable(value = "id") long videoid, String videoname, Model model) {
+        Iterable<video> video = videoRepository.findByNameAndId(name ,videoid);
+        ArrayList<video> vidos = new ArrayList<>();
+        video.forEach(vidos::add);
+        model.addAttribute("video", vidos);
+        return "videoDetails";
     }
 
 }

@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<header th:insert="blocks/HeaderCabinet :: headercabinet"></header>
+    <head>
+        <title>NolBol Training</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="btn btn-success">Выход</button>
+        </form>
+        </li>
+        </ul>
+    </head>
 <body class="text-left">
 <br><br><br>
 <div class = "alert alert-primary mt-1">
     <h2 th:inline="text" align="center">Добро пожаловать в систему тестирования, [[${#httpServletRequest.remoteUser}]]!</h2>
+</div>
+<div class="container mt-1 mb-1" align="center">
+    <a href="/results">Мои результаты</a><br>
+    <a href="/thv">Список видео по темам</a><br>
+    <a href="/th">Список тестов по темам</a><br>
+    <a href="/th">Список других уроков по темам</a><br>
+    <a href="/testlist">Доступные тесты</a><br>
 </div>
 </body>
 </html>

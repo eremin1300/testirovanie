@@ -44,7 +44,7 @@ public class LessonsController {
         model.addAttribute("test", test);
         return "TestList";
     }
-    @GetMapping("/videolist/{id}")
+   /* @GetMapping("/videolist/{id}")
     public String videowatch(@PathVariable(value = "id") long videoid, Model model) {
         Optional<video> video = videoRepository.findById(videoid);
         ArrayList<video> vidos = new ArrayList<>();
@@ -52,4 +52,21 @@ public class LessonsController {
         model.addAttribute("video", vidos);
         return "videoDetails";
     }
+    @GetMapping("/videolist/{name}/{id}")
+    public String videowatchtheme(@PathVariable(value = "id") long videoid,@PathVariable(value = "name") long themes, Model model) {
+        Optional<video> video = videoRepository.findById(videoid);
+        ArrayList<video> vidos = new ArrayList<>();
+        video.ifPresent(vidos::add);
+        model.addAttribute("video", vidos);
+        return "videoDetails";
+    }
+
+    @GetMapping("/videolist/{th}")
+    public String videowatchbythemes_id(@PathVariable(value = "th") long videoth, Model model) {
+        Optional<video> video = videoRepository.findById(videoth);
+        ArrayList<video> vidos = new ArrayList<>();
+        video.ifPresent(vidos::add);
+        model.addAttribute("video", vidos);
+        return "videolist";
+    }*/
 }
