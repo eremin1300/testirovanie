@@ -8,7 +8,7 @@
 <br>
 <br>
 <div th:each="el : ${video}" class = "alert alert-success mt-1">
-    <a th:href ="'/editvideoform/' + ${el.id}"><h5 th:text="${el.name}"></h5></a>
+    <a th:href ="'/editvideoform/' + ${el.id}"><h5 th:text="${el.title}"></h5></a>
 </div>
 </body>
 </html>

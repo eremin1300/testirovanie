@@ -4,6 +4,11 @@
 
 <header th:insert="blocks/header :: header"></header>
 <body class="text-left">
-
+<br>
+<br>
+<br>
+<div th:each="el : ${themes}" class = "alert alert-success mt-1">
+    <a th:href ="'/editthemesform/' + ${el.id}"><h5 th:text="${el.title}"></h5></a>
+</div>
 </body>
 </html>

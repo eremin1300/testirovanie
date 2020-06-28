@@ -36,13 +36,15 @@ public class adminController {
 
     @GetMapping("/addlesson")
     public String addlesson(Model model) {
-        model.addAttribute("title", "Добавить Статьи");
+        Iterable<themes> test = ThemesRepo.findAll();
+        model.addAttribute("test", test);
         return "/addlesson";
     }
 
     @GetMapping("/addtest")
     public String addtest(Model model) {
-        model.addAttribute("title", "Добавить Тесты");
+        Iterable<themes> test = ThemesRepo.findAll();
+        model.addAttribute("test", test);
         return "/addtest";
     }
 

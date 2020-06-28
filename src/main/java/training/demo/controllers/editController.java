@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import training.demo.models.themes;
 import training.demo.models.video;
 
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.util.Optional;
 public class editController {
     @Autowired
     private training.demo.repo.videoRepository videoRepository;
+    @Autowired
+    private training.demo.repo.ThemesRepo ThemesRepo;
 
     @GetMapping("/editvideo")
     public String editvideo(Model model) {
@@ -29,6 +32,8 @@ public class editController {
         ArrayList<video> vidos = new ArrayList<>();
         video.ifPresent(vidos::add);
         model.addAttribute("video", vidos);
+        Iterable<themes> test = ThemesRepo.findAll();
+        model.addAttribute("test", test);
         return "/editVideoForm";
     }
 
