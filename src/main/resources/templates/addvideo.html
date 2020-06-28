@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
 <header th:insert="blocks/header :: header"></header>
 <body class="text-left">
-<div class="container mt-5 mb-5">
+<div class="container mt-3 mb-3">
     <p class="float left" align="left"> <br>
         <a href="/adminroom">Назад</a><br>
     </p>
@@ -12,9 +11,18 @@
 <div class="container mt-5 mb-5">
     <p class="float left" align="left"> <br>
     <form action="/addvideo" method="post"> <br>
-    <input type="text" name="name" placeholder="Выберите тему видео" class="form-control"><br>
+    <div class="controls">
+        <a>Выберите тему</a>
+        <select class="form-control" name="name" >
+            <option th:each="el : ${test}"
+                    th:value="${el.name}"
+                    th:text="${el.name}">
+            </option>
+        </select>
+    </div><br>
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-    <input type="text" name="title" placeholder="Введите название видео" class="form-control"><br>
+    <a>Введите название видео</a>
+    <input type="text" name="title" placeholder="Введите название видео" class="form-control" value="Без названия"><br>
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     <textarea name="URL" placeholder="Введите ссылку на видео (необюходимо скопировать с ютуба)" class="form-control"></textarea><br>
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
