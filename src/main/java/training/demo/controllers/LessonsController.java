@@ -1,5 +1,6 @@
 package training.demo.controllers;
 
+import org.hibernate.engine.jdbc.Size;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,8 @@ import training.demo.models.lesson;
 import training.demo.models.video;
 import training.demo.models.test;
 import java.util.ArrayList;
+
+import static com.google.common.collect.Iterables.size;
 
 @Controller
 public class LessonsController {
@@ -45,13 +48,14 @@ public class LessonsController {
     }
     @GetMapping("/videolist/{name}")
     public String videowatch(@PathVariable(value = "name") String videoname, Model model) {
-        if(!videoRepository.findByName(videoname)){
-        Iterable<video> video = videoRepository.findByName(videoname);
-        ArrayList<video> vidos = new ArrayList<>();
 
-                         video.forEach(vidos::add);
-                         model.addAttribute("video", vidos);
-                         }
+        Iterable<video> video = videoRepository.findByName(videoname);
+         if(size(video)!=0) {
+             ArrayList<video> vidos = new ArrayList<>();
+
+             video.forEach(vidos::add);
+             model.addAttribute("video", vidos);
+         }
         else {
                 model.addAttribute("message", "message");
              }
