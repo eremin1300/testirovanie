@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import training.demo.models.lesson;
+import training.demo.models.test;
 import training.demo.models.themes;
 import training.demo.models.video;
 
@@ -17,10 +19,14 @@ public class editController {
     private training.demo.repo.videoRepository videoRepository;
     @Autowired
     private training.demo.repo.ThemesRepo ThemesRepo;
+    @Autowired
+    private training.demo.repo.lessonRepository lessonRepository;
+    @Autowired
+    private training.demo.repo.testRepository testRepository;
+
 
     @GetMapping("/editvideo")
     public String editvideo(Model model) {
-        model.addAttribute("title", "Редактировать видео");
         Iterable<video> video = videoRepository.findAll();
         model.addAttribute("video", video);
         return "/editVideo";
@@ -38,15 +44,17 @@ public class editController {
     }
 
     @GetMapping("/editlesson")
-    public String aeditlesson(Model model) {
-        model.addAttribute("title", "Добавить Статьи");
-        return "/lessonslist";
+    public String editlesson(Model model) {
+        Iterable<lesson> lesson = lessonRepository.findAll();
+        model.addAttribute("lesson", lesson);
+        return "/EditLessons";
     }
 
     @GetMapping("/edittests")
     public String edittests(Model model) {
-        model.addAttribute("title", "Добавить Статьи");
-        return "/testlist";
+        Iterable<test> test = testRepository.findAll();
+        model.addAttribute("test", test);
+        return "/EditTests";
     }
 
 

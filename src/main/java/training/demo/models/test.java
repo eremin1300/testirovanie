@@ -21,18 +21,18 @@ public class test {
     private Long id;
 
     public String getTheme() {
-        return theme;
+        return name;
     }
 
     public test() {
     }
 
     public void setTheme(String theme) {
-        this.theme = theme;
+        this.name = theme;
     }
 
     private String num;
-    private String theme;
+    private String name;
 
     public String getNum() {
         return num;
@@ -44,7 +44,7 @@ public class test {
 
     public test(String theme, String title, String num, String fullText) {
         this.num = num;
-        this.theme = theme;
+        this.name = name;
         this.title = title;
         this.fullText = fullText;
     }

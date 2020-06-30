@@ -32,16 +32,16 @@ public class PostController {
         return "redirect:/videolist";
     }
 
-    @PostMapping("/addlessons")
-    public String addLessonsAdd(@RequestParam String theme, @RequestParam String title, @RequestParam String fulltext, Model model) {
-        lesson lesson = new lesson(theme, title, fulltext);
+    @PostMapping("/addlesson")
+    public String addLessonsAdd(@RequestParam String name, @RequestParam String title, @RequestParam String fulltext, Model model) {
+        lesson lesson = new lesson(name, title, fulltext);
         lessonRepository.save(lesson);
-        return "redirect:/addlessons";
+        return "redirect:/addlesson";
     }
 
     @PostMapping("/addtest")
-    public String addtestAdd(@RequestParam String theme, @RequestParam String title, @RequestParam String num,@RequestParam String fulltext, Model model) {
-        test test = new test(theme, title, num, fulltext);
+    public String addtestAdd(@RequestParam String name, @RequestParam String title, @RequestParam String num,@RequestParam String fulltext, Model model) {
+        test test = new test(name, title, num, fulltext);
         testRepository.save(test);
         return "redirect:/addtest";
     }

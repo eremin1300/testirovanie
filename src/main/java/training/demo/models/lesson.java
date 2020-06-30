@@ -20,21 +20,22 @@ public class lesson {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public String getThem() {
-        return theme;
+
+    private String name;
+
+    public String getName() {
+        return name;
     }
 
-    public void setThem(String name) {
-        this.theme = theme;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    private String theme;
 
     public lesson() {
     }
 
-    public lesson(String theme, String title, String fullText) {
-        this.theme = theme;
+    public lesson(String name, String title, String fullText) {
+        this.name = name;
         this.title = title;
         this.fullText = fullText;
     }
