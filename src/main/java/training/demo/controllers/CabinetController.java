@@ -20,20 +20,17 @@ public class CabinetController {
 
     @GetMapping("/cabinet")
     public String cabinet(Model model) {
-        model.addAttribute("title", "Личный Кабинет");
         return "cabinet";
     }
 
 
     @GetMapping("/editTh")
     public String editTh(Model model) {
-        model.addAttribute("title", "Релактировать темы");
         return "editThemes";
     }
 
     @GetMapping("/th")
     public String theme(Model model) {
-        model.addAttribute("title", "Видео");
         Iterable<themes> themes = ThemesRepo.findAll();
         model.addAttribute("themes", themes);
         return "Themes";
@@ -47,11 +44,13 @@ public class CabinetController {
         model.addAttribute("themes", themes2);
         return "videoDetails";
     }
+
     @GetMapping("/results")
     public String results(Model model) {
         model.addAttribute("title", "результаты");
         return "/results";
     }
+
     @GetMapping("/thv/{id}")
     public String themesVideoDetails(@PathVariable(value = "id") long videoid, Model model) {
         Optional<themes> themes = ThemesRepo.findById(videoid);
@@ -60,12 +59,44 @@ public class CabinetController {
         model.addAttribute("themes", themes2);
         return "videolist";
     }
+
     @GetMapping("/thv")
     public String themesVideo(Model model) {
-        model.addAttribute("title", "Видео");
         Iterable<themes> themes = ThemesRepo.findAll();
         model.addAttribute("themes", themes);
         return "ThemesVideo";
+    }
+
+    @GetMapping("/tht")
+    public String themesTest(Model model) {
+        Iterable<themes> themes = ThemesRepo.findAll();
+        model.addAttribute("themes", themes);
+        return "ThemesTest";
+    }
+
+    @GetMapping("/tht/{id}")
+    public String themesTestDetails(@PathVariable(value = "id") long testid, Model model) {
+        Optional<themes> themes = ThemesRepo.findById(testid);
+        ArrayList<themes> themes2 = new ArrayList<>();
+        themes.ifPresent(themes2::add);
+        model.addAttribute("themes", themes2);
+        return "TestList";
+    }
+
+    @GetMapping("/thl")
+    public String themesLessons(Model model) {
+        Iterable<themes> themes = ThemesRepo.findAll();
+        model.addAttribute("themes", themes);
+        return "ThemesLessons";
+    }
+
+    @GetMapping("/thl/{id}")
+    public String themesLessonsDetails(@PathVariable(value = "id") long lessonid, Model model) {
+        Optional<themes> themes = ThemesRepo.findById(lessonid);
+        ArrayList<themes> themes2 = new ArrayList<>();
+        themes.ifPresent(themes2::add);
+        model.addAttribute("themes", themes2);
+        return "LessonList";
     }
 
 }

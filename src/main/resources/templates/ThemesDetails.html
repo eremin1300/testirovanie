@@ -9,7 +9,6 @@
 <br>
 <input type="text" th:value="${el.name}" name="name" placeholder="Выберите тему видео" class="form-control"><br>
     <div class= "th:each=el : ${themes}">
-
         <h3 th:text="${el.name}"></h3>
     </div>
 </div>

@@ -27,25 +27,25 @@ public class LessonsController {
 
     @GetMapping("/videolist")
     public String video(Model model) {
-        model.addAttribute("title", "Видео");
         Iterable<video> video = videoRepository.findAll();
         model.addAttribute("video", video);
         return "videoList";
     }
-    @GetMapping("/lessonslist")
+
+    @GetMapping("/lessonlist")
     public String lesson(Model model) {
-        model.addAttribute("title", "Статьи");
         Iterable<lesson> lesson = lessonRepository.findAll();
         model.addAttribute("lesson", lesson);
         return "LessonsList";
     }
+
     @GetMapping("/testlist")
     public String tests(Model model) {
-        model.addAttribute("title", "Тесты");
         Iterable<test> test = testRepository.findAll();
         model.addAttribute("test", test);
         return "TestList";
     }
+
     @GetMapping("/videolist/{name}")
     public String videowatch(@PathVariable(value = "name") String videoname, Model model) {
 
@@ -61,6 +61,7 @@ public class LessonsController {
              }
         return "videolist";
     }
+
     @GetMapping("/videolist/{name}/{id}")
     public String videowatchbyid(@PathVariable(value = "name") String  name, @PathVariable(value = "id") long videoid, String videoname, Model model) {
         Iterable<video> video = videoRepository.findByNameAndId(name ,videoid);
@@ -69,5 +70,55 @@ public class LessonsController {
         model.addAttribute("video", vidos);
         return "videoDetails";
     }
+
+    @GetMapping("/testlist/{name}")
+    public String testwatch(@PathVariable(value = "name") String testname, Model model) {
+
+        Iterable<test> test = testRepository.findByName(testname);
+        if(size(test)!=0) {
+            ArrayList<test> testpoint = new ArrayList<>();
+
+            test.forEach(testpoint::add);
+            model.addAttribute("test", testpoint);
+        }
+        else {
+            model.addAttribute("message", "message");
+        }
+        return "testlist";
+    }
+
+    @GetMapping("/testlist/{name}/{id}")
+    public String testwatchbyid(@PathVariable(value = "name") String  name, @PathVariable(value = "id") long testid, String testname, Model model) {
+        Iterable<test> test = testRepository.findByNameAndId(name ,testid);
+        ArrayList<test> testpoint = new ArrayList<>();
+        test.forEach(testpoint::add);
+        model.addAttribute("test", testpoint);
+        return "TestDetails";
+    }
+    @GetMapping("/lessonlist/{name}")
+    public String lessonwatch(@PathVariable(value = "name") String lessonname, Model model) {
+
+        Iterable<lesson> lesson = lessonRepository.findByName(lessonname);
+        if(size(lesson)!=0) {
+            ArrayList<lesson> lessonpoint = new ArrayList<>();
+
+            lesson.forEach(lessonpoint::add);
+            model.addAttribute("lesson", lessonpoint);
+        }
+        else {
+            model.addAttribute("message", "message");
+        }
+        return "LessonsList";
+    }
+
+    @GetMapping("/lessonlist/{name}/{id}")
+    public String lessonwatchbyid(@PathVariable(value = "name") String  name, @PathVariable(value = "id") long lessonid, String lessonname, Model model) {
+        Iterable<lesson> lesson = lessonRepository.findByNameAndId(name ,lessonid);
+        ArrayList<lesson> lessonpoint = new ArrayList<>();
+        lesson.forEach(lessonpoint::add);
+        model.addAttribute("lesson", lessonpoint);
+        return "LessonDetails";
+    }
+
 
 }

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<header th:insert="blocks/header :: header"></header>
+<br>
+<div class="video-container mt-5" align="center" >
+    <div class="text" th:each="el : ${lesson}">
+        <h3 th:text="${el.title}"></h3> <br>
+
+            <h6 th:text="${el.fullText}"></h6>
+    </div>
+</div>
+</body>
+</html>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
 <header th:insert="blocks/header :: header"></header>
 <body class="text-left">
 <br>
-<br>
-<br>
+<div th:if="${message}">
+    <h2>  Тесты по данной теме отсутствуют</h2>
+</div>
 <div th:each="el : ${test}" class = "alert alert-success mt-1">
-    <a th:href ="'/testlist/' + ${el.id}"><h5 th:text="${el.title}"></h5></a>
+    <a th:href ="'/testlist/' + ${el.name} + '/' + ${el.id}"><h5 th:text="${el.title}"></h5></a>
 </div>
 </body>
 </html>
