@@ -6,6 +6,9 @@
 <body class="text-left">
 <br>
 <br>
+<div th:if="${themes}">
+    <h2>  Выберите тему видео</h2>
+</div>
 <br>
 <div th:each="el : ${themes}" class = "alert alert-success mt-1">
     <a th:href ="'/videolist/' + ${el.name}"><h5 th:text="${el.name}"></h5></a>

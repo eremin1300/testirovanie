@@ -23,6 +23,11 @@ public class CabinetController {
         return "cabinet";
     }
 
+    @GetMapping("/")
+    public String home1(Model model) {
+        model.addAttribute("title", "Главная страница");
+        return "/cabinet";
+    }
 
     @GetMapping("/editTh")
     public String editTh(Model model) {
@@ -100,27 +105,3 @@ public class CabinetController {
     }
 
 }
-
-/*
-@Controller
-@PreAuthorize("hasRole('Admin')")
-@RequestMapping("/admin")
-public class AdminController {
-    @Transactional
-    @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    public String checkPersonInfo(@ModelAttribute User user, Model model, Authentication authentication) {
-        // user does not have the selected institution set
-        customUserDetailsService.createNewUser(user);
-        updateModelWithAllUsers(model);
-        return "admin";
-    }
-
-    private void updateModelWithAllUsers(Model model) {
-        model.addAttribute(USERLIST, customUserDetailsService.findAllUsers());
-        model.addAttribute(INSTITUTION_LIST, institutionService.findAll());
-        model.addAttribute("user", new User());
-    }
-
-...
-}   */

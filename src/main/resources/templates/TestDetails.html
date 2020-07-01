@@ -4,7 +4,7 @@
 <header th:insert="blocks/header :: header"></header>
 <br>
 <div class="video-container mt-5" align="center" >
-    <div class="text" th:each="el : ${lesson}">
+    <div class="text" th:each="el : ${test}">
         <h3 th:text="${el.title}"></h3> <br>
 
             <h6 th:text="${el.fullText}"></h6>
