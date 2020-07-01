@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<header th:insert="blocks/header :: header"></header>
+<body class="text-left">
+<div class="container mt-5 mb-5">
+    <p class="float left" align="left"> <br>
+        <a href="/adminroom">Назад</a><br>
+    </p>
+</div>
+<div class="container mt-5 mb-5">
+    <h1>Редактирование атрибутов статьи</h1>
+    <p align="center"> <br>
+    <form method="post">
+        <div th:each="el : ${lesson}" >
+            <a>Тема статьи</a><br>
+            <select class="form-control" name="name" >
+                <option th:value="${el.name}"
+                        th:text="${el.name}">
+                </option>
+            </select>
+            <br>
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <a>Описание статьи</a><br>
+            <input type="text" th:value="${el.title}" name="title" placeholder="Введите название видео" class="form-control"><br>
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <a>Текст статьи</a><br>
+            <textarea type="text" th:value="${el.fullText}" name="fullText" placeholder="Введите текст статьи" class="form-control" th:text="${el.fullText}"/><br>
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <button type="submit" class="btn btn-success">Сохранить изменения</button>
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+        </div> </form>
+</div>
+</p>
+
+</div>
+</body>
+</html>

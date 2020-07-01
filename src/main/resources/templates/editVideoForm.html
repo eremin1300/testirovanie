@@ -15,7 +15,12 @@
     <form method="post">
     <div th:each="el : ${video}" >
         <a>Тема видео</a><br>
-        <input type="text" th:value="${el.name}" name="name"  class="form-control" disabled="disabled"><br>
+        <select class="form-control" name="name" >
+            <option th:value="${el.name}"
+                    th:text="${el.name}">
+            </option>
+        </select>
+        <br>
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <a>Описание видео</a><br>
         <input type="text" th:value="${el.title}" name="title" placeholder="Введите название видео" class="form-control"><br>

@@ -20,29 +20,31 @@ public class test {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public String getTheme() {
+
+    private String num;
+
+    public String getName() {
         return name;
     }
 
-    public test() {
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setTheme(String theme) {
-        this.name = theme;
-    }
-
-    private String num;
     private String name;
 
     public String getNum() {
         return num;
     }
 
+    public test() {
+    }
+
     public void setNum(String num) {
         this.num = num;
     }
 
-    public test(String theme, String title, String num, String fullText) {
+    public test(String name, String title, String num, String fullText) {
         this.num = num;
         this.name = name;
         this.title = title;

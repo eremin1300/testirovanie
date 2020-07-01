@@ -38,8 +38,7 @@ public class editController {
         ArrayList<video> vidos = new ArrayList<>();
         video.ifPresent(vidos::add);
         model.addAttribute("video", vidos);
-        Iterable<themes> test = ThemesRepo.findAll();
-        model.addAttribute("test", test);
+
         return "/editVideoForm";
     }
 
@@ -57,5 +56,22 @@ public class editController {
         return "/EditTests";
     }
 
+    @GetMapping("/edittestsform/{id}")
+    public String testedit(@PathVariable(value = "id") long testid, Model model) {
+        Optional<test> testone = testRepository.findById(testid);
+        ArrayList<test> testpoint = new ArrayList<>();
+        testone.ifPresent(testpoint::add);
+        model.addAttribute("test", testpoint);
+        return "/editTestForm";
+    }
+
+    @GetMapping("/editlessonsform/{id}")
+    public String lessonsedit(@PathVariable(value = "id") long lessonid, Model model) {
+        Optional<lesson> lessonone = lessonRepository.findById(lessonid);
+        ArrayList<lesson> lessonpoint = new ArrayList<>();
+        lessonone.ifPresent(lessonpoint::add);
+        model.addAttribute("lesson", lessonpoint);
+        return "/editLessonsForm";
+    }
 
 }
