@@ -24,7 +24,7 @@
             <button type="submit" class="btn btn-success">Выход</button>
         </form>
         </li>
-        <!-- вариант с кнопкой -->
+        [[${#httpServletRequest.remoteUser}]]
         <li class="nav-item">
             <form th:action="@{/logout}" method="post">
                 <input type="button" onclick="history.back();" value="Назад"class="btn btn-success"/>

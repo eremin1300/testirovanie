@@ -60,19 +60,24 @@ public class PostController {
     }
 
     @PostMapping("/addtest")
-    public String addtestAdd(@RequestParam String name, @RequestParam String title, @RequestParam String num,@RequestParam String fulltext, Model model) {
-        test test = new test(name, title, num, fulltext);
+    public String addtestAdd(@RequestParam String name, @RequestParam String var1, @RequestParam String title, @RequestParam String fulltext, @RequestParam String var2, @RequestParam String var3, @RequestParam String var4, @RequestParam String var5, @RequestParam String truevar, Model model) {
+        test test = new test(name, title,  fulltext, var1, var2, var3, var4, var5, truevar);
         testRepository.save(test);
         return "redirect:/addtest";
     }
 
     @PostMapping("/edittestsform/{id}")
-    public String edittestform(@PathVariable(value = "id") long id, @RequestParam String name, @RequestParam String title, @RequestParam String fullText,@RequestParam String num, Model model) {
+    public String edittestform(@PathVariable(value = "id") long id, @RequestParam String name, @RequestParam String var1, @RequestParam String title, @RequestParam String fulltext, @RequestParam String var2, @RequestParam String var3, @RequestParam String var4, @RequestParam String var5, @RequestParam String truevar, Model model) {
         test test = testRepository.findById(id).orElseThrow();
         test.setName(name);
         test.setTitle(title);
-        test.setNum(num);
-        test.setFullText(fullText);
+        test.setFullText(fulltext);
+        test.setVar1(var1);
+        test.setVar2(var2);
+        test.setVar3(var3);
+        test.setVar4(var4);
+        test.setVar5(var5);
+        test.setTruevar(truevar);
         testRepository.save(test);
         return "redirect:/edittests";
     }
