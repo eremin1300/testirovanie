@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<header th:insert="blocks/header :: header"></header>
+<body class="text-left">
+<div class="container mt-5 mb-5">
+    <p class="float left" align="left"> <br>
+        <a href="/adminroom">Назад</a><br>
+    </p>
+</div>
+<div class="container mt-5 mb-5">
+    <p class="float left" align="left"> <br>
+    <form action="/addtest" method="post"> <br>
+        <div class="controls">
+            <a>Выберите тему. Внимание: Тему нельзя изменить после создания!</a>
+            <select class="form-control" name="name" >
+                <option th:each="el : ${test}"
+                        th:value="${el.name}"
+                        th:text="${el.name}">
+                </option>
+            </select>
+        </div><br>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <a>Введите описание теста\вопроса</a>
+        <input type="text" name="title" placeholder="Введите заголовок" class="form-control"><br>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <textarea type="text" name="fulltext" placeholder="Введите текст вопроса" class="form-control"></textarea><br>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <button type="submit" class="btn btn-success">Добавить вопрос</button>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    </form>
+    </p>
+
+</div>
+</body>
+</html>

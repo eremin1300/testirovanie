@@ -54,4 +54,18 @@ public class adminController {
         return "/addThemes";
     }
 
+    @GetMapping("/addquest")
+    public String quest(Model model) {
+        Iterable<themes> test = ThemesRepo.findAll();
+        model.addAttribute("test", test);
+        return "/addquest";
+    }
+
+    @GetMapping("/addtestvar")
+    public String addtestvar(Model model) {
+        Iterable<themes> test = ThemesRepo.findAll();
+        model.addAttribute("test", test);
+        return "/addtestvar";
+    }
+
 }
