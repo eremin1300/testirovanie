@@ -20,7 +20,7 @@ public class themes {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
-
+    private String name;
     public themes() {
     }
 
@@ -36,7 +36,7 @@ public class themes {
         this.name = name;
     }
 
-    private String name;
+
 }
 
 /*@Entity

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<header th:insert="blocks/header :: header"></header>
+<body class="text-left">
+<br>
+
+<div th:each="el : ${users}" class = "alert alert-success mt-1">
+    <h5 th:text="${el.username}+ ' ' + ${el.roles}+ ' ' + ${el.active}"></h5> <a th:href ="'/userlist/' + ${el.username}"></h5>Редактировать</h5></a>
+</div>
+</body>
+</html>

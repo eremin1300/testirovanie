@@ -74,4 +74,21 @@ public class editController {
         return "/editLessonsForm";
     }
 
+    @GetMapping("/editthemes")
+    public String editthemes(Model model) {
+        Iterable<themes> themes = ThemesRepo.findAll();
+        model.addAttribute("themes", themes);
+        return "/editThemes";
+    }
+
+    @GetMapping("/editthemesform/{id}")
+    public String ditthemesform(@PathVariable(value = "id") long themesid, Model model) {
+        Optional<themes> themes = ThemesRepo.findById(themesid);
+        ArrayList<themes> themespoint = new ArrayList<>();
+        themes.ifPresent(themespoint::add);
+        model.addAttribute("themes", themespoint);
+        return "/editLessonsForm";
+    }
+
+
 }

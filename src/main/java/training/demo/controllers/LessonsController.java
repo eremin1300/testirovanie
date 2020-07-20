@@ -1,6 +1,5 @@
 package training.demo.controllers;
 
-import org.hibernate.engine.jdbc.Size;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -95,6 +94,7 @@ public class LessonsController {
         model.addAttribute("test", testpoint);
         return "TestDetails";
     }
+
     @GetMapping("/lessonlist/{name}")
     public String lessonwatch(@PathVariable(value = "name") String lessonname, Model model) {
 

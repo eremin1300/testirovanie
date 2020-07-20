@@ -25,9 +25,20 @@
     <a>Введите название теста</a>
     <input type="text" name="title" placeholder="Введите заголовок" class="form-control"><br>
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-    <input type="text" name="num" placeholder="Выберите количество вариантов ответа" class="form-control"><br>
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     <textarea type="text" name="fulltext" placeholder="Введите текст вопроса" class="form-control"></textarea><br>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <a>Введите варианты ответов. Если вариантов ответов меньше пяти - лишние поля оставляйте пустыми</a>
+    <input type="text" name="var1" placeholder="Введите ответ 1" class="form-control"><br>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <input type="text" name="var2" placeholder="Введите ответ 2" class="form-control"><br>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <input type="text" name="var3" placeholder="Введите ответ 3" class="form-control"><br>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <input type="text" name="var4" placeholder="Введите ответ 4" class="form-control"><br>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <input type="text" name="var5" placeholder="Введите ответ 5" class="form-control"><br>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <input type="text" name="truevar" placeholder="Введите номера правильных ответов через запятую" class="form-control"><br>
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     <button type="submit" class="btn btn-success">Добавить статью</button>
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />

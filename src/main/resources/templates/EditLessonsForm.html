@@ -15,15 +15,10 @@
     <form method="post">
         <div th:each="el : ${lesson}" >
             <a>Тема статьи</a><br>
-            <select class="form-control" name="name" >
-                <option th:value="${el.name}"
-                        th:text="${el.name}">
-                </option>
-            </select>
-            <br>
+            <input readonly type="text" th:value="${el.name}" name="name" placeholder="Тема статьи" class="form-control"><br>
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
             <a>Описание статьи</a><br>
-            <input type="text" th:value="${el.title}" name="title" placeholder="Введите название видео" class="form-control"><br>
+            <input type="text" th:value="${el.title}" name="title" placeholder="Введите название статьи" class="form-control"><br>
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
             <a>Текст статьи</a><br>
             <textarea type="text" th:value="${el.fullText}" name="fullText" placeholder="Введите текст статьи" class="form-control" th:text="${el.fullText}"/><br>
